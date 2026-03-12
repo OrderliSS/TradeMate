@@ -31,7 +31,7 @@ import { useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useOrganization } from "@/contexts/OrganizationContext";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { OrganizationSwitcher } from "@/components/navigation/OrganizationSwitcher";
+import { OrganizationSwitcher } from "@/components/navigation/Mocks";
 
 interface SidebarItemProps {
     icon: React.ElementType;

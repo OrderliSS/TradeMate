@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
+
 :root {
   /* Color Palette - Deep Dark Ocean Premium */
   --bg-main: #020617;
@@ -31,7 +33,6 @@
   --transition-smooth: 0.3s var(--spring-easing);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap');
 
 * {
   box-sizing: border-box;

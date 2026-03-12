@@ -7,22 +7,20 @@ import './styles/theme.css';
 import './index.css';
 
 function App() {
-  console.log("App Rendering Started");
   return (
     <Router>
       <AppProviders>
-        <div className="debug-root" style={{ border: '2px solid red', minHeight: '100vh' }}>
-          <ClassicLayout>
-            <Routes>
-              <Route path="/" element={<ClassicDashboard />} />
-              <Route path="/settings" element={<div className="p-8"><h1>Settings Page (Placeholder)</h1></div>} />
-              <Route path="*" element={<div className="p-8"><h1>404 - Not Found</h1></div>} />
-            </Routes>
-          </ClassicLayout>
-        </div>
+        <ClassicLayout>
+          <Routes>
+            <Route path="/" element={<ClassicDashboard />} />
+            <Route path="/settings" element={<div className="p-8"><h1>Settings Page (Placeholder)</h1></div>} />
+            <Route path="*" element={<div className="p-8"><h1>404 - Not Found</h1></div>} />
+          </Routes>
+        </ClassicLayout>
       </AppProviders>
     </Router>
   );
 }
+
 
 export default App;

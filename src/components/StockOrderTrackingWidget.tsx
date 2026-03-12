@@ -5,7 +5,7 @@ import { useCanonicalStockOrders, CanonicalStockOrder } from '@/hooks/useCanonic
 import { usePackageRecords } from '@/hooks/usePackageRecords';
 import { useEnvNavigate } from '@/hooks/useEnvNavigate';
 import { cn } from '@/lib/utils';
-import { normalizeStatusLabel } from '@/lib/tracking-status-labels';
+import { getStatusLabel } from '@/lib/tracking-status-labels';
 
 interface StockOrderTrackingWidgetProps {
   filter: 'all' | 'processing' | 'inTransit' | 'pending' | 'delivered';
@@ -127,7 +127,7 @@ export const StockOrderTrackingWidget: React.FC<StockOrderTrackingWidgetProps> =
                         {pkg.total_shipments} pkg{pkg.total_shipments !== 1 ? 's' : ''}
                       </span>
                       <span className="text-[9px] font-black text-muted-foreground uppercase tracking-tighter leading-none mt-0.5">
-                        {normalizeStatusLabel(status)}
+                        {getStatusLabel(status)}
                       </span>
                     </div>
                     <ArrowRight className="h-3 w-3 text-primary opacity-0 group-hover:opacity-100 transition-all" />
