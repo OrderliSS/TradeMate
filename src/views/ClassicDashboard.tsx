@@ -1,4 +1,5 @@
-﻿import React from 'react';
+import React from 'react';
+import './Dashboard.css';
 import { DashboardMetricsSection } from '../components/DashboardMetricsSection';
 import { SalesQueueWidget } from '../components/SalesQueueWidget';
 import { StockOrderTrackingWidget } from '../components/StockOrderTrackingWidget';
@@ -6,39 +7,43 @@ import { DashboardCalendarWidget } from '../components/DashboardCalendarWidget';
 
 export const ClassicDashboard = () => {
     return (
-        <div className="flex flex-col gap-6">
-            <section>
-                <h2 className="text-xs font-bold uppercase text-slate-400 mb-2">Metric Index</h2>
-                <DashboardMetricsSection />
-            </section>
+        <div className="dashboard-container">
+            <header className="dashboard-header">
+                <h2 className="section-title">Metric Index</h2>
+                <div className="metrics-wrapper">
+                    <DashboardMetricsSection />
+                </div>
+            </header>
             
-            <section>
-                <h2 className="text-xs font-bold uppercase text-slate-400 mb-2">Workflow Center</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div className="h-[380px] bg-white border rounded-xl overflow-hidden shadow-sm">
-                        <div className="px-3 py-2 border-b flex items-center justify-between h-10">
-                            <h3 className="text-[10px] font-semibold uppercase text-slate-500">Sales Ticket Queue</h3>
+            <section className="workflow-center">
+                <h2 className="section-title">Workflow Center</h2>
+                <div className="workflow-grid">
+                    <article className="workflow-card premium-card">
+                        <div className="card-header">
+                            <h3 className="card-title">Sales Ticket Queue</h3>
                         </div>
-                        <div className="p-1 h-[calc(100%-40px)]">
+                        <div className="card-content">
                             <SalesQueueWidget statusFilter="all" />
                         </div>
-                    </div>
-                    <div className="h-[380px] bg-white border rounded-xl overflow-hidden shadow-sm">
-                         <div className="px-3 py-2 border-b flex items-center justify-between h-10">
-                            <h3 className="text-[10px] font-semibold uppercase text-slate-500">Stock Order Tracking</h3>
+                    </article>
+
+                    <article className="workflow-card premium-card">
+                        <div className="card-header">
+                            <h3 className="card-title">Stock Order Tracking</h3>
                         </div>
-                        <div className="p-1 h-[calc(100%-40px)]">
+                        <div className="card-content">
                             <StockOrderTrackingWidget filter="all" />
                         </div>
-                    </div>
-                    <div className="h-[380px] bg-white border rounded-xl overflow-hidden shadow-sm">
-                         <div className="px-3 py-2 border-b flex items-center justify-between h-10">
-                            <h3 className="text-[10px] font-semibold uppercase text-slate-500">Service Calendar</h3>
+                    </article>
+
+                    <article className="workflow-card premium-card">
+                        <div className="card-header">
+                            <h3 className="card-title">Service Calendar</h3>
                         </div>
-                        <div className="p-1 h-[calc(100%-40px)]">
+                        <div className="card-content">
                             <DashboardCalendarWidget selectedDate={new Date()} onSelectedDateChange={() => {}} />
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
         </div>

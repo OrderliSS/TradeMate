@@ -1,0 +1,128 @@
+.metric-card {
+    padding: 1.25rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 120px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    transition: var(--transition-smooth);
+}
+
+.metric-card:hover {
+    border-color: var(--accent-blue);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--accent-glow);
+}
+
+.metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metric-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+}
+
+.metric-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.5;
+    color: var(--accent-blue);
+}
+
+.metric-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+}
+
+.metric-subvalue {
+    font-size: 0.75rem;
+}
+
+/* Accent Colors */
+.accent-green .metric-icon,
+.accent-green .metric-value {
+    color: #10b981;
+}
+
+.accent-purple .metric-icon,
+.accent-purple .metric-value {
+    color: var(--accent-purple);
+}
+
+/* Locked State */
+.metric-card.locked {
+    filter: grayscale(1);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.lock-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    border-radius: 16px;
+    z-index: 2;
+}
+
+.lock-tag {
+    background: var(--bg-tertiary);
+    color: var(--text-dim);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Skeleton Loader */
+.skeleton-pulse {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+}
+
+.skeleton-title {
+    width: 60%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.skeleton-value {
+    width: 40%;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}

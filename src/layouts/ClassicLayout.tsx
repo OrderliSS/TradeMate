@@ -1,4 +1,5 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
+import './Layout.css';
 import { ModernSidebar } from '../components/ModernSidebar';
 import { UniversalNavBar } from '../components/UniversalNavBar';
 
@@ -7,7 +8,7 @@ export const ClassicLayout = ({ children }: { children: React.ReactNode }) => {
     const [sidebarPinned, setSidebarPinned] = useState(true);
 
     return (
-        <div className="flex h-screen bg-background overflow-hidden">
+        <div className="app-layout">
             <ModernSidebar
                 isExpanded={isSidebarExpanded}
                 onExpandedChange={(expanded) => {
@@ -18,11 +19,11 @@ export const ClassicLayout = ({ children }: { children: React.ReactNode }) => {
                 expandableMode={true}
             />
 
-            <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden transition-all duration-300">
-                <div className="sticky top-0 z-30 flex-shrink-0">
+            <div className={`main-content ${isSidebarExpanded ? 'sidebar-expanded' : 'sidebar-collapsed'}`}>
+                <nav className="top-nav">
                     <UniversalNavBar hideDropdownTabs={true} />
-                </div>
-                <main className="flex-1 overflow-y-auto">
+                </nav>
+                <main className="page-body">
                     {children}
                 </main>
             </div>

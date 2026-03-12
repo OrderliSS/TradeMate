@@ -1,0 +1,47 @@
+.app-layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: var(--bg-main);
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    transition: margin-left var(--transition-smooth);
+}
+
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    flex-shrink: 0;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.page-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Sidebar transition compensation if needed */
+.sidebar-expanded {
+    /* Optional: adjustments when expanded */
+}
+
+.sidebar-collapsed {
+    /* Optional: adjustments when collapsed */
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0 !important;
+    }
+}
