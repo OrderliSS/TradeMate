@@ -16,9 +16,8 @@ import { useSubscription } from "@/contexts/SubscriptionContext";
 import { useUserProfile, UserProfile } from "@/hooks/useUserProfile";
 import { useUserRoles } from "@/hooks/useUserRoles";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { EnvLink } from "@/components/navigation/EnvLink";
-import { OrganizationSwitcher } from "@/components/navigation/OrganizationSwitcher";
+import { Badge, Avatar, AvatarFallback } from "@/components/ui/UIMocks";
+import { EnvLink, MobileNavigation, OrganizationSwitcher, DemoUserSwitcher, ImpersonateShortcut, TierSwitcher } from "@/components/navigation/Mocks";
 import { useEnvNavigate } from "@/hooks/useEnvNavigate";
 import {
   DropdownMenu,
@@ -28,22 +27,17 @@ import {
   DropdownMenuTrigger,
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { ThemeToggle, CompactDevIndicator, UserSettingsDialog, DashboardCustomizationModal } from "@/components/MiscMocks";
+import { PrivacySettingsDialog } from "@/components/MiscMocks";
 import { NotificationCenter } from "@/components/notifications/NotificationCenter";
 import { ConnectionStatusIndicator } from "@/components/realtime/ConnectionStatusIndicator";
-import { CompactDevIndicator } from "@/components/CompactDevIndicator";
-import { MobileNavigation } from "@/components/navigation/MobileNavigation";
 import { isDevelopmentMode, isTestMode, isProductionMode } from "@/lib/environment-utils";
-import { UserSettingsDialog } from "@/components/UserSettingsDialog";
-import { PrivacySettingsDialog } from "@/components/privacy/PrivacySettingsDialog";
 import { useDashboardVersion } from "@/hooks/useDashboardVersion";
-import { DashboardCustomizationModal } from "@/components/dashboard/DashboardCustomizationModal";
 import { useDashboardCustomization } from "@/contexts/DashboardCustomizationContext";
 import { useSandbox } from "@/contexts/SandboxContext";
-import { DemoUserSwitcher } from "@/components/navigation/DemoUserSwitcher";
-import { ImpersonateShortcut } from "@/components/navigation/ImpersonateShortcut";
-import { TierSwitcher } from "@/components/navigation/TierSwitcher";
+import { useTier } from "@/contexts/TierContext";
+import { useImpersonation } from "@/contexts/ImpersonationContext";
+
 
 export const UniversalNavBar = ({ hideDropdownTabs = false }: { hideDropdownTabs?: boolean } = {}) => {
   const location = useLocation();
