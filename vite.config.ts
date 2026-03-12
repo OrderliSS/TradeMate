@@ -27,11 +27,11 @@ export default defineConfig(({ mode }) => {
         ],
         manifest: {
           id: isStaging ? '/orderli-staging-pwa' : '/orderli-pwa',
-          name: isStaging ? 'Orderli (Staging)' : 'Orderli - Order Management System',
-          short_name: isStaging ? 'Orderli STG' : 'Orderli',
+          name: isStaging ? 'Orderli Classic (Staging)' : 'Orderli Classic',
+          short_name: isStaging ? 'Classic STG' : 'Classic',
           description: isStaging
-            ? 'Orderli Staging Environment - For testing purposes only.'
-            : 'See every purchase. Know every customer. Keep every order in order.',
+            ? 'Orderli Classic Staging Environment.'
+            : 'Orderli Classic - Standalone Modernized Legacy UI.',
           theme_color: isStaging ? '#f97316' : '#000000', // Orange for staging
           background_color: '#ffffff',
           display: 'standalone',
