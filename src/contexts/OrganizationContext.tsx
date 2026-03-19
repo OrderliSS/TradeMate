@@ -5,8 +5,8 @@ const OrganizationContext = createContext<any>(null);
 export const OrganizationProvider = ({ children }: { children: React.ReactNode }) => {
   const currentOrganization = {
     id: 'mock-org-id',
-    name: 'Orderli Classic',
-    access_code: 'OR-CLASSIC',
+    name: 'TradeMate',
+    access_code: 'TM-001',
     member_count: 5
   };
 

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { LucideIcon, ShoppingCart, CheckSquare, Package, PlusCircle, Truck, FilePlus2, UserPlus, Phone, Store } from 'lucide-react';
+import { LucideIcon, ShoppingCart, Package, Truck, FilePlus2, UserPlus } from 'lucide-react';
 import { getCurrentEnvironment } from '@/lib/environment-utils';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
@@ -171,7 +171,7 @@ export const useDashboardQuickActions = () => {
     if (!user?.id || isSavingRef.current) return;
 
     // Skip writes during Ghost Mode to prevent 409 conflicts
-    const isGhost = localStorage.getItem('orderli_ghost_active') === 'true';
+    const isGhost = localStorage.getItem('trademate_ghost_active') === 'true';
     if (isGhost) return;
     
     isSavingRef.current = true;

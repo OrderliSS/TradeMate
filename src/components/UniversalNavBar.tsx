@@ -1,23 +1,13 @@
-import { memo, useState } from "react";
-import { useLocation } from "react-router-dom";
-import './NavBar.css';
 import {
-  Home, Users, Users2, ShoppingCart, CheckSquare, Package, Receipt, TrendingUp,
-  FileText, Briefcase, Building2, User, LogOut, Settings,
-  Shield, Database, ChevronDown,
-  Search, BookOpen, LayoutDashboard, BarChart3, CreditCard,
-  FlaskConical, ShieldCheck, Sparkles
+  LogOut, Settings, Sparkles
 } from "lucide-react";
 import { GlobalCommandPalette } from "@/components/command/GlobalCommandPalette";
 import orderliLogoEnhanced from '@/assets/orderi_logo_enahnce.png';
 import { useAuth } from "@/contexts/AuthContext";
-import { useOrganization } from "@/contexts/OrganizationContext";
-import { useSubscription } from "@/contexts/SubscriptionContext";
 import { useUserProfile, UserProfile } from "@/hooks/useUserProfile";
-import { useUserRoles } from "@/hooks/useUserRoles";
 import { Button } from "@/components/ui/button";
-import { Badge, Avatar, AvatarFallback } from "@/components/ui/UIMocks";
-import { EnvLink, MobileNavigation, OrganizationSwitcher, DemoUserSwitcher, ImpersonateShortcut, TierSwitcher } from "@/components/navigation/Mocks";
+import { Avatar, AvatarFallback } from "@/components/ui/UIMocks";
+import { EnvLink, MobileNavigation, OrganizationSwitcher } from "@/components/navigation/Mocks";
 import { useEnvNavigate } from "@/hooks/useEnvNavigate";
 import {
   DropdownMenu,
@@ -27,30 +17,20 @@ import {
   DropdownMenuTrigger,
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
-import { ThemeToggle, CompactDevIndicator, UserSettingsDialog, DashboardCustomizationModal } from "@/components/MiscMocks";
-import { PrivacySettingsDialog } from "@/components/MiscMocks";
+import { ThemeToggle } from "@/components/MiscMocks";
 import { NotificationCenter } from "@/components/notifications/NotificationCenter";
 import { ConnectionStatusIndicator } from "@/components/realtime/ConnectionStatusIndicator";
-import { isDevelopmentMode, isTestMode, isProductionMode } from "@/lib/environment-utils";
+import { isProductionMode } from "@/lib/environment-utils";
 import { useDashboardVersion } from "@/hooks/useDashboardVersion";
-import { useDashboardCustomization } from "@/contexts/DashboardCustomizationContext";
-import { useSandbox } from "@/contexts/SandboxContext";
-import { useTier } from "@/contexts/TierContext";
-import { useImpersonation } from "@/contexts/ImpersonationContext";
+
 
 
 export const UniversalNavBar = ({ hideDropdownTabs = false }: { hideDropdownTabs?: boolean } = {}) => {
-  const location = useLocation();
   const navigate = useEnvNavigate();
   const { user, signOut } = useAuth();
-  const { currentOrganization } = useOrganization();
   const { profile } = useUserProfile();
-  const { isAdmin } = useUserRoles();
-  const { activeTier } = useTier();
-  const { isImpersonating, stopImpersonation } = useImpersonation();
   const typedProfile = profile as UserProfile | null;
   const { setVersion, canToggle } = useDashboardVersion();
-  const { isOpen: showDashboardCustomization, setOpen: setShowDashboardCustomization } = useDashboardCustomization();
 
   const userInitial = user?.email?.charAt(0).toUpperCase() || "U";
 
@@ -59,9 +39,9 @@ export const UniversalNavBar = ({ hideDropdownTabs = false }: { hideDropdownTabs
       <div className="navbar-inner">
         {/* Left Section */}
         <div className="navbar-left">
-          <MobileNavigation className="mobile-only" />
+          <MobileNavigation />
           <EnvLink to="/" className="navbar-logo-link">
-            <img src={orderliLogoEnhanced} alt="Orderli" className="navbar-logo" />
+            <img src={orderliLogoEnhanced} alt="TradeMate" className="navbar-logo" />
           </EnvLink>
         </div>
 

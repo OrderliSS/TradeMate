@@ -26,12 +26,12 @@ export default defineConfig(({ mode }) => {
           'assets/brand/app_icon/logo-192.png'
         ],
         manifest: {
-          id: isStaging ? '/orderli-staging-pwa' : '/orderli-pwa',
-          name: isStaging ? 'Orderli Classic (Staging)' : 'Orderli Classic',
-          short_name: isStaging ? 'Classic STG' : 'Classic',
+          id: isStaging ? '/trademate-staging-pwa' : '/trademate-pwa',
+          name: isStaging ? 'TradeMate (Staging)' : 'TradeMate',
+          short_name: isStaging ? 'TM STG' : 'TradeMate',
           description: isStaging
-            ? 'Orderli Classic Staging Environment.'
-            : 'Orderli Classic - Standalone Modernized Legacy UI.',
+            ? 'TradeMate Staging Environment.'
+            : 'TradeMate - Standalone Modernized Legacy UI.',
           theme_color: isStaging ? '#f97316' : '#000000', // Orange for staging
           background_color: '#ffffff',
           display: 'standalone',
@@ -87,7 +87,7 @@ export default defineConfig(({ mode }) => {
               urlPattern: /^https:\/\/.*\.supabase\.co\/rest\/.*/i,
               handler: 'NetworkFirst',
               options: {
-                cacheName: isStaging ? 'supabase-api-cache-staging' : 'supabase-api-cache',
+                cacheName: isStaging ? 'trademate-api-cache-staging' : 'trademate-api-cache',
                 expiration: {
                   maxEntries: 50,
                   maxAgeSeconds: 60 * 5 // 5 minutes
@@ -101,7 +101,7 @@ export default defineConfig(({ mode }) => {
               urlPattern: /^https:\/\/.*\.supabase\.co\/storage\/.*/i,
               handler: 'CacheFirst',
               options: {
-                cacheName: isStaging ? 'supabase-storage-cache-staging' : 'supabase-storage-cache',
+                cacheName: isStaging ? 'trademate-storage-cache-staging' : 'trademate-storage-cache',
                 expiration: {
                   maxEntries: 100,
                   maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days

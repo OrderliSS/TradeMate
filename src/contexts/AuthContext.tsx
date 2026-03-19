@@ -1,13 +1,13 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 
 const AuthContext = createContext<any>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [user, setUser] = useState({
+  const user = {
     id: 'mock-user-id',
-    email: 'demo@orderli.classic',
+    email: 'demo@trademate.io',
     user_metadata: { full_name: 'Demo User' }
-  });
+  };
 
   const signOut = async () => console.log('Sign out');
 
